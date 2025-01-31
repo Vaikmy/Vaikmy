@@ -1,0 +1,100 @@
+/* 🌟 Définition des couleurs personnalisées */
+:root {
+    --bg-color: #d4ceb0; /* Fond général */
+    --chat-bg: #bcaf71;  /* Fond du chatbot */
+    --user-msg: #a2815a; /* Messages utilisateur */
+    --bot-msg: #ffffff;  /* Messages bot */
+    --text-color: #000;  /* Couleur du texte */
+    --border-color: #a2815a; /* Couleur des bordures */
+}
+
+/* 🌟 Style général */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--bg-color);
+    text-align: center;
+    padding: 20px;
+    color: var(--text-color);
+}
+
+/* 🌟 Affichage du logo */
+#logo {
+    max-width: 150px;
+    display: block;
+    margin: 0 auto 15px;
+}
+
+/* 🌟 Conteneur du chatbot */
+#chat-container {
+    width: 90%;
+    max-width: 400px;
+    height: 500px;
+    background: var(--chat-bg);
+    border-radius: 10px;
+    padding: 10px;
+    overflow-y: auto;
+    border: 2px solid var(--border-color);
+    margin: auto;
+    text-align: left;
+}
+
+/* 🌟 Messages */
+.message {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 75%;
+    word-wrap: break-word;
+    font-size: 14px;
+}
+
+/* 🌟 Messages utilisateur */
+.user {
+    background-color: var(--user-msg);
+    color: white;
+    align-self: flex-end;
+    text-align: right;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+/* 🌟 Messages bot */
+.bot {
+    background-color: var(--bot-msg);
+    color: black;
+    align-self: flex-start;
+    text-align: left;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+/* 🌟 Barre de saisie */
+#input-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+#input-text {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background: #fff;
+    color: #000;
+}
+
+#send-button {
+    padding: 10px;
+    border: none;
+    background: var(--user-msg);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+#send-button:hover {
+    background: #8a5f44; /* Effet hover */
+}
