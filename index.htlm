@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot Vaikmy</title>
+    <title>Vaikmy - Chatbot IA</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <img src="logo.png" alt="Logo de Vaikmy" id="logo">
-        <h1>Bienvenue sur Vaikmy</h1>
-    </header>
+    <div class="chat-container">
+        <header>
+            <h1>Vaikmy - Chatbot IA</h1>
+        </header>
 
-    <main>
-        <!-- Zone de chat -->
-        <div id="chat-container"></div>
-
-        <!-- Zone d'entrée utilisateur -->
-        <div id="input-container">
-            <input type="text" id="input-text" placeholder="Tapez votre message...">
-            <button id="send-button">Envoyer</button>
+        <div id="chat-box">
+            <div class="message bot">Bonjour ! Comment puis-je vous aider aujourd’hui ?</div>
         </div>
-    </main>
+
+        <div class="input-container">
+            <input type="text" id="input-text" placeholder="Envoyez un message..." autocomplete="off">
+            <button id="send-button">➤</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
