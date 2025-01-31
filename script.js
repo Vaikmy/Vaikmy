@@ -3,8 +3,14 @@ const chatContainer = document.getElementById('chat-container');
 const inputText = document.getElementById('input-text');
 const sendButton = document.getElementById('send-button');
 
-// ⚠️ Mets ici l’URL de ton Webhook Make (ou API OpenAI)
-const MAKE_WEBHOOK_URL = "https://hook.integromat.com/XXXXX"; 
+// 🔥 Réponses automatiques pour tester le chatbot
+const fakeResponses = [
+    "Bonjour ! Comment puis-je vous aider ?",
+    "Je suis un chatbot en test. 😊",
+    "Désolé, je ne comprends pas encore tout...",
+    "Essaie de me poser une autre question !",
+    "Je suis en phase de développement ! 🚀"
+];
 
 // 📝 Fonction pour ajouter un message dans le chat
 function addMessage(content, sender) {
@@ -15,37 +21,27 @@ function addMessage(content, sender) {
     chatContainer.scrollTop = chatContainer.scrollHeight;
 }
 
-// 🚀 Fonction pour envoyer un message à Make
-async function sendMessageToMake(message) {
-    addMessage("Le bot réfléchit...", 'bot');
-
-    try {
-        const response = await fetch(MAKE_WEBHOOK_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ message })
-        });
-
-        const data = await response.json();
-        chatContainer.lastChild.remove(); // Supprime le message "Le bot réfléchit..."
-        addMessage(data.reply, 'bot');
-    } catch (error) {
-        console.error("Erreur:", error);
-        chatContainer.lastChild.remove();
-        addMessage("⚠️ Erreur de connexion.", 'bot');
-    }
+// 🎯 Fonction qui génère une réponse automatique
+function getFakeResponse() {
+    const randomIndex = Math.floor(Math.random() * fakeResponses.length);
+    return fakeResponses[randomIndex];
 }
 
-// 🎯 Gestion de l'envoi du message
+// 🚀 Gestion de l'envoi des messages
 sendButton.addEventListener('click', () => {
     const text = inputText.value.trim();
     if (!text) return;
+    
     addMessage(text, 'user');
     inputText.value = '';
-    sendMessageToMake(text);
+
+    // Simule une réponse du bot après 1 seconde
+    setTimeout(() => {
+        addMessage(getFakeResponse(), 'bot');
+    }, 1000);
 });
 
-// 🎯 Envoyer avec "Entrée"
+// 🎯 Envoi avec la touche "Entrée"
 inputText.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         sendButton.click();
