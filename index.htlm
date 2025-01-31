@@ -13,7 +13,10 @@
     </header>
 
     <main>
+        <!-- Zone de chat -->
         <div id="chat-container"></div>
+
+        <!-- Zone d'entrée utilisateur -->
         <div id="input-container">
             <input type="text" id="input-text" placeholder="Tapez votre message...">
             <button id="send-button">Envoyer</button>
